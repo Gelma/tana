@@ -1,4 +1,95 @@
 {% extends 'site_base.html' %}
 {% block content %}
-<h2> Home </h2>
+<h2> Gestione Prenotazioni </h2>
+
+<form class="col-md-4 col-sm-6">
+  <div class="form-group">
+    <label for="name"> Nome </label>
+    <input type="text" class="form-control" id="name" placeholder="Nome">
+  </div>
+ 
+  <div class="form-group">
+    <label for="date"> Data </label>
+    <input type="text" class="form-control" id="date" placeholder="Date">
+  </div>
+ 
+  <div class="form-group">
+    <h3>Attività</h3>
+  <div class="radio">
+    <label>
+    <input type="radio" name="activity" id="activity1" value="ST">
+        Studente
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+    <input type="radio" name="activity" id="activity2" value="TM">
+        Tandem
+    </label>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <h3>Numero</h3>
+  <div class="radio-inline">
+    <label>
+    <input type="radio" name="cardinality" id="cardinality1" value="1">
+        1
+    </label>
+  </div>
+  <div class="radio-inline">
+    <label>
+    <input type="radio" name="cardinality" id="cardinality2" value="2">
+        2
+    </label>
+  </div>
+  <div class="radio-inline">
+    <label>
+    <input type="radio" name="cardinality" id="cardinality3" value="3">
+        3
+    </label>  
+  </div>
+  <div class="radio-inline">
+    <label>
+    <input type="radio" name="cardinality" id="cardinality4" value="4">
+        4
+    </label>  
+  </div>
+  <div class="radio-inline">
+    <label>
+    <input type="radio" name="cardinality" id="cardinality5" value="5">
+        5
+    </label>  
+  </div>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-default pull-right">Submit</button>
+  </div>
+</form>
+<div style="min-height:6em;" class="col-md-12 col-sm-12">
+</div>
+<table class='table table-striped'>
+    <thead>
+        <tr><th>Nome</th><th>Tipo</th><th>Numero Persone</th><th>Data</th></tr>
+    </thead>
+    <tbody>
+    {% for booking in bookings %}
+        <tr>
+            <td>{{booking.name}}</td>
+            <td>{{booking.activity}}</td>
+            <td>{{booking.cardinality}}</td>
+            <td>{{booking.booking_date}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot></tfoot>
+</table>
+<script type='text/javascript'>
+    window.onload = function(){
+        $(function () {
+                $('#date').datetimepicker();
+            });
+    }
+</script>
 {% endblock content %}
