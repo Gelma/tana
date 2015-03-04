@@ -14,3 +14,15 @@ Struttura:
 * per il momento nessuna autenticazione
 * c'è da fare una migliore validazione dell'input
 * c'è da fare la cancellazione
+
+## Per Far partire
+
+Se si vuole far partire da db pulito bisogna 
+* cancellare il file db.sqlite3
+* eseguire python manage.py migrate
+* eseguire python manage.py createsuperuser
+
+Se va bene per il test c'è l'utente bveronesi bveronesi
+* andare dentro aeroplanisti 
+* far partire bower install
+* far partire python manage.py runserver
