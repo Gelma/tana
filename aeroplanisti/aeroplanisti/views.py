@@ -11,6 +11,7 @@ def home(request):
         bookings = Booking.objects.all()
         return render(request,'home.html',{'today':today,'bookings':bookings});
     if request.method =='POST':
+        
         pass
     return redirect('home')
 
@@ -23,5 +24,5 @@ def login(request):
 
 
 def login(request):
-    '''the login procedure'''
+    '''the logout procedure'''
     return render(request,'logout.html')
