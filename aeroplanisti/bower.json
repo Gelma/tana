@@ -1,0 +1,23 @@
+{
+  "name": "aeroplanisti",
+  "version": "0.1.0-SNAPSHOT",
+  "authors": [
+    "endeios@gmail.com <endeios@gmail.com>"
+  ],
+  "description": "App per gli aeroplanisti italiani",
+  "keywords": [
+    "uip"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2"
+  }
+}
