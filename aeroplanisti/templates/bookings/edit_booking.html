@@ -1,0 +1,35 @@
+{% extends 'site_base.html' %}
+{% block content %}
+<h2> Modifica Prenotazioni </h2>
+{% for message in messages %}
+<div class="bg-info">
+    {{message}}
+</div>
+{% endfor %}
+{% for error in errors %}
+<div class="bg-warning">
+    {{error}}
+</div>
+{% endfor %}
+
+<form class="col-md-4 col-sm-6" method='POST' target=".">
+  {% csrf_token %}
+  <div class="form-group">
+   <table class="table">
+    {{form.as_table}}
+   </table>
+    <button type="submit" class="btn btn-default pull-right">Submit</button>
+  </div>
+</form>
+<div style="min-height:6em;" class="col-md-12 col-sm-12">
+</div>
+<script type='text/javascript'>
+    window.onload = function(){
+        $(function () {
+                $('#id_booking_date').datetimepicker({
+                    locale:'IT'
+                    });
+            });
+    }
+</script>
+{% endblock content %}
