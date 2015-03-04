@@ -13,7 +13,6 @@ Struttura:
 * ad ogni inserimento delete degli eventi piu' vecchi di 3 mesi
 * per il momento nessuna autenticazione
 * c'è da fare una migliore validazione dell'input
-* c'è da fare la cancellazione
 
 ## Per Far partire
 
