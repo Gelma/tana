@@ -1,28 +1,39 @@
 {% extends 'site_base.html' %}
 {% block content %}
 <h2> Gestione Prenotazioni </h2>
+{% for message in messages %}
+<div class="bg-info">
+    {{message}}
+</div>
+{% endfor %}
+{% for error in errors %}
+<div class="bg-warning">
+    {{error}}
+</div>
+{% endfor %}
 
-<form class="col-md-4 col-sm-6">
+<form class="col-md-4 col-sm-6" method='POST' target=".">
+  {% csrf_token %}
   <div class="form-group">
     <label for="name"> Nome </label>
-    <input type="text" class="form-control" id="name" placeholder="Nome">
+    <input type="text" class="form-control" id="name" placeholder="Nome" name='name'>
   </div>
  
   <div class="form-group">
     <label for="date"> Data </label>
-    <input type="text" class="form-control" id="date" placeholder="Date">
+    <input type="text" class="form-control" id="date" placeholder="Date" name='date'>
   </div>
  
   <div class="form-group">
     <h3>Attività</h3>
   <div class="radio">
-    <label>
+    <label class="my-label act btn btn-default">
     <input type="radio" name="activity" id="activity1" value="ST">
         Studente
     </label>
   </div>
   <div class="radio">
-    <label>
+    <label class="my-label act btn btn-default ">
     <input type="radio" name="activity" id="activity2" value="TM">
         Tandem
     </label>
@@ -30,33 +41,34 @@
   </div>
 
   <div class="form-group">
-    <h3>Numero</h3>
+  <h3>Numero</h3>
+
   <div class="radio-inline">
-    <label>
-    <input type="radio" name="cardinality" id="cardinality1" value="1">
+    <label class="my-label card  btn btn-default">
+    <input type="radio" name="cardinality" id="cardinality1" value="1" >
         1
     </label>
   </div>
   <div class="radio-inline">
-    <label>
+    <label class="my-label card btn btn-default">
     <input type="radio" name="cardinality" id="cardinality2" value="2">
         2
     </label>
   </div>
   <div class="radio-inline">
-    <label>
+    <label class="my-label card btn btn-default">
     <input type="radio" name="cardinality" id="cardinality3" value="3">
         3
     </label>  
   </div>
   <div class="radio-inline">
-    <label>
+    <label class="my-label card btn btn-default">
     <input type="radio" name="cardinality" id="cardinality4" value="4">
         4
     </label>  
   </div>
   <div class="radio-inline">
-    <label>
+    <label class="my-label card btn btn-default">
     <input type="radio" name="cardinality" id="cardinality5" value="5">
         5
     </label>  
@@ -88,7 +100,20 @@
 <script type='text/javascript'>
     window.onload = function(){
         $(function () {
-                $('#date').datetimepicker();
+                $('#date').datetimepicker({
+                    locale:'IT'
+                    });
+                $('.card').click(function(event){
+                   $('.card').removeClass('btn-success');
+                   $(this).toggleClass('btn-default')
+                   $(this).toggleClass('btn-success')
+                });
+                $('.act').click(function(event){
+                   $('.act').removeClass('btn-success');
+                   $(this).toggleClass('btn-default')
+                   $(this).toggleClass('btn-success')
+                });
+
             });
     }
 </script>

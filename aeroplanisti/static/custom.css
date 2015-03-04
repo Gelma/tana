@@ -105,3 +105,10 @@ body {
   border-radius: 50%;
 }
 
+.my-label{
+    display:block;
+    min-width:2.5em;
+    margin:1em;
+    padding:1em;
+    font-size:2em;
+}
